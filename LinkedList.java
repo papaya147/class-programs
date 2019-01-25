@@ -34,6 +34,31 @@ public class LinkedList
             }
         }
     }
+    
+    public void delete(int index){
+        curr=first;
+        prev=curr;
+        int at=-1;
+        if(index<0){
+            System.out.println("No index found");
+        }else{
+            while(curr!=null){
+                at++;
+                if(at==index){
+                    prev.next=curr.next;
+                    break;
+                }
+                if(curr.next==null){
+                    System.out.println("Index not available");
+                    break;
+                }
+                else{
+                    prev=curr;
+                    curr=curr.next;
+                }
+            }
+        }
+    }
 
     public void get(){
         //returns everything
