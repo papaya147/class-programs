@@ -92,4 +92,51 @@ public class LinkedList
             }
         }
     }
+    
+    public void reverse(){
+        //reverses the LinkedList
+        curr=first;
+        int count=0;
+        while(curr!=null){
+            count++;
+            curr=curr.next;
+        }
+        curr=first;
+        double[] data=new double[count];
+        for(int x=0; x<count; x++){
+            data[x]=curr.data;
+            curr=curr.next;
+        }
+        curr=first;
+        for(int x=count-1; x>=0; x--){
+            curr.data=data[x];
+            curr=curr.next;
+        }
+    }
+    
+    public LinkedList split(int index){
+        curr=first;
+        int count=0;
+        Node keep=new Node(0);
+        for(int x=0; x<index; x++){
+            curr=curr.next;
+            keep=curr;
+        }
+        while(curr!=null){
+            count++;
+            curr=curr.next;
+        }
+        curr=keep;
+        double[] data=new double[count];
+        for(int x=0; x<count; x++){
+            data[x]=curr.data;
+            curr=curr.next;
+        }
+        
+        LinkedList l=new LinkedList();
+        for(int x=0; x<count; x++){
+            l.insert(data[x]);
+        }
+        return l;
+    }
 }
